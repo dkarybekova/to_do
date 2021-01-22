@@ -9,9 +9,9 @@ class ToDo(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=50)
-    description = models.Textfield(max_length=500)
-    price = models.IntegerField(min_value=1)
+    description = models.TextField(max_length=500)
+    price = models.IntegerField()
     genre = models.CharField(max_length=50)
     author = models.CharField(max_length=50)
-    year = models.IntegerField(max_length=4)
+    year = models.IntegerField()
     date = models.DateField(auto_now_add=True)

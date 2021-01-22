@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, add, edit, delete
+from main.views import homepage, add, edit, delete, books
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,6 +27,7 @@ urlpatterns = [
     path('add/', add, name='add'),
     path('edit/', edit, name='edit'),
     path('delete/', delete, name='delete'),
+    path('books/', books, name='books'),
 ]   +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
