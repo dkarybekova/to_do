@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, add, edit, delete, books
+from main.views import homepage, add_todo, edit, delete, books
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='home'),
-    path('add/', add, name='add'),
+    path('add/', add_todo, name='add_todo'),
     path('edit/', edit, name='edit'),
     path('delete/', delete, name='delete'),
     path('books/', books, name='books'),

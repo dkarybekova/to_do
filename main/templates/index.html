@@ -11,8 +11,11 @@
 <body>
 <section>
     <div class="create_container">
-        <input class='create_input' type="text" placeholder="Напишите сюда задачу">
-        <button class='create_button'>Добавить</button>
+        <form action="{% url 'add_todo'%}" method="POST">
+            {% csrf_token %}
+            <input class='create_input' type="text" placeholder="Напишите сюда задачу" name="todo_text">
+            <button class='create_button'>Добавить</button>
+        </form>
     </div>
     <div class="todo_container">
         {% for todo in todo_list %}
@@ -27,8 +30,8 @@
                 <div class="todo_item_footer">
                     <p>{{todo.created_at}} <span>17:22</span></p>
                     <div class="action_buttons">
-                        <img src="../static/icons/star.png" alt="">
-                        <img src="../static/icons/trash.png" alt="">
+                        <img src="{% static 'icons/star.png' %}" alt="">
+                        <img src="{% static 'icons/trash.png' %}" alt="">
                     </div>
                 </div>
             </div>
