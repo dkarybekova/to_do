@@ -11,8 +11,18 @@
 <body>
 <section>
     <div class="create_container">
-        <input class='create_input' type="text" placeholder="Напишите сюда задачу">
-        <button class='create_button'>Добавить</button>
+        <h4>Добавить новую книгу</h4>
+        <form action="{% url 'add_book'%}" method="POST">
+            {% csrf_token %}
+            <input class='create_input' type="text" placeholder="Заголовок" name="book_title">
+            <input class='create_input' type="text" placeholder="Подзаголовок" name="book_subtitle">
+            <input class='create_input' type="text" placeholder="Описание" name="book_description">
+            <input class='create_input' type="text" placeholder="Жанр" name="book_genre">
+            <input class='create_input' type="number" placeholder="Цена" name="book_price">
+            <input class='create_input' type="text" placeholder="Автор" name="book_author">
+            <input class='create_input' type="text" placeholder="Год издания" name="book_year">
+            <button class='create_button'>Добавить</button>
+        </form>
     </div>
     <div class="todo_container">
         {% for book in book_list %}
