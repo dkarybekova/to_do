@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, add_todo, edit, delete_todo, mark_todo, unmark_todo, \
+from main.views import homepage, add_todo, edit, delete_todo, mark_todo, unmark_todo, close_todo, \
 books, add_book, delete_book, mark_book, unmark_book, book_detail
 
 from django.conf import settings
@@ -30,6 +30,7 @@ urlpatterns = [
     path('delete/<id>/', delete_todo, name='delete-todo'),
     path('mark/<id>/', mark_todo, name='mark-todo'),
     path('unmark/<id>/', unmark_todo, name='unmark-todo'),
+    path('close/<id>/', close_todo, name='close-todo'),
     path('books/', books, name='books'),
     path('add-book/', add_book, name='add_book'),
     path('book-detail/<id>/', book_detail, name='book-detail'),

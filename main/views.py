@@ -32,6 +32,12 @@ def unmark_todo(request, id):
     todo.save()
     return redirect(homepage)
 
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_done = not todo.is_done
+    todo.save()
+    return redirect(homepage)
+
 def books(request):
     book_list = Book.objects.all()
     return render(request, 'books.html', {'book_list': book_list})
