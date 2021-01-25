@@ -50,6 +50,10 @@ def add_book(request):
     book.save()
     return redirect(books)
 
+def book_detail(request, id):
+    book = Book.objects.get(id=id)
+    return render(request, 'book_detail.html', {'book': book})
+
 def delete_book(request, id):
     book = Book.objects.get(id=id)
     book.delete()

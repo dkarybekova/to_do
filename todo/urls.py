@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import homepage, add_todo, edit, delete_todo, mark_todo, unmark_todo, \
-books, add_book, delete_book, mark_book, unmark_book
+books, add_book, delete_book, mark_book, unmark_book, book_detail
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,6 +32,7 @@ urlpatterns = [
     path('unmark/<id>/', unmark_todo, name='unmark-todo'),
     path('books/', books, name='books'),
     path('add-book/', add_book, name='add_book'),
+    path('book-detail/<id>/', book_detail, name='book-detail'),
     path('delete-book/<id>/', delete_book, name='delete-book'),
     path('mark-book/<id>/', mark_book, name='mark-book'),
     path('unmark-book/<id>/', unmark_book, name='unmark-book'),
