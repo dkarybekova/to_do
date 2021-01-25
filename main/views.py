@@ -20,6 +20,18 @@ def delete_todo(request, id):
     todo.delete()
     return redirect(homepage)
 
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favourite = True
+    todo.save()
+    return redirect(homepage)
+
+def unmark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favourite = False
+    todo.save()
+    return redirect(homepage)
+
 def books(request):
     book_list = Book.objects.all()
     return render(request, 'books.html', {'book_list': book_list})
