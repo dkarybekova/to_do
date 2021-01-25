@@ -15,8 +15,10 @@ def add_todo(request):
 def edit(request):
     return render(request, 'edit.html')
 
-def delete(request):
-    return render(request, 'delete.html')
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(homepage)
 
 def books(request):
     book_list = Book.objects.all()
