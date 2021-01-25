@@ -50,3 +50,20 @@ def add_book(request):
     book.save()
     return redirect(books)
 
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect(books)
+
+def mark_book(request, id):
+    book = Book.objects.get(id=id)
+    book.is_favourite = True
+    book.save()
+    return redirect(books)
+
+def unmark_book(request, id):
+    book = Book.objects.get(id=id)
+    book.is_favourite = False
+    book.save()
+    return redirect(books)
+

@@ -26,7 +26,10 @@
     </div>
     <div class="todo_container">
         {% for book in book_list %}
-        <div class="todo_item">
+        <div class="todo_item 
+            {% if book.is_favourite %}
+                marked
+            {% endif %} ">
             <div class="card" style="width: 18rem; display: inline-flex; align-items: center;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
@@ -34,6 +37,16 @@
                 <span style="font-style: italic;"><b>{{ book.author }} ({{book.year}})</span></b>
                 <p class="card-text">{{book.description}}</p>
                 <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+            <div class="todo_item_footer">
+                <div class="action_buttons">
+                    {% if book.is_favourite %}
+                        <a href="{% url 'unmark-book' book.id%}"><img src="{% static 'icons/star-2.png' %}" alt=""></a>
+                    {% else %}
+                        <a href="{% url 'mark-book' book.id%}"><img src="{% static 'icons/star.png' %}" alt=""></a> 
+                    {% endif %}
+                    <a href="{% url 'delete-book' book.id %}"><img src="{% static 'icons/trash.png' %}" alt=""></a>
                 </div>
             </div>
         </div>
